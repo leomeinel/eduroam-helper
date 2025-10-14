@@ -6,16 +6,16 @@ The certificate bundle should have been provided by your university.
 
 ## Basic usage
 
-### `I` GUI
+### I GUI
 
-:information_source: | Please note that this might be outdated. For (sadly somewhat overcomplicated but) up-to-date instructions, check [this](https://doku.tid.dfn.de/de:eduroam:easyroam#installation_der_easyroam_profile_auf_linux_geraeten).
+:information_source: | Please note that this might be outdated. For (sadly somewhat overcomplicated) up-to-date instructions, check [this](https://doku.tid.dfn.de/de:eduroam:easyroam#installation_der_easyroam_profile_auf_linux_geraeten) page.
 
 1. Log in to https://www.easyroam.de
 2. Click on `Manual installation > Linux` and give a profile name to download `example.p12`. The file name might be different.
 
-### `II` CLI
+### II CLI
 
-After you have downloaded `example.p12` (`I`), open your terminal.
+After you have downloaded `example.p12` ([I](#i-gui)), open your terminal.
 
 ```sh
 # Navigate to the directory where 'example.p12' is stored

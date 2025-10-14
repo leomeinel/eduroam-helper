@@ -43,3 +43,7 @@ Configure eduroam with nmcli and a pkcs12 certificate bundle
 Parameters:
     [pkcs12 certificate bundle]  Path to certificate bundle, fex. '~/Downloads/example.p12'
 ```
+
+## Credit
+
+- `eduroam-nmcli.sh` is heavily inspired by https://git.uni-greifswald.de/URZ-Public/easyroam/src/commit/dceaa0b73c4e0c007844fc1f68fef103d02c99d4/configure-eduroam-with-easyroam (Commited by Daniel von Obernitz)

@@ -39,7 +39,7 @@ if [[ "${EUID}" -ne 0 ]]; then
     log_err "You can only run this script as root."
     exit 1
 fi
-if [[ -f "${1}" ]]; then
+if [[ ! -f "${1}" ]]; then
     log_err "Please specify a valid pkcs12 certificate bundle."
     print_help
     exit 1

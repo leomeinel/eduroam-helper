@@ -1,5 +1,7 @@
 # eduroam-helper
 
+:warning: This script has only been tested very briefly. It executes successfully but it is unclear whether this works with eduroam at the moment.
+
 This is a collection of scripts to configure eduroam with a pkcs12 certificate bundle.
 
 The certificate bundle should have been provided by your university.

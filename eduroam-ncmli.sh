@@ -22,7 +22,7 @@ log_warning() {
     /usr/bin/logger -s -p local0.warning <<<"$(basename "${0}"): ${*}"
 }
 cert_bundle_err_exit() {
-    log_err "Certificate bundle '${1}' is invalid or could not be processed."
+    log_err "Certificate bundle '${1}' is invalid or openssl exited unexpectedly."
     exit 1
 }
 print_help() {
@@ -36,7 +36,7 @@ print_help() {
 
 # Check ${EUID} and parameter
 if [[ "${EUID}" -ne 0 ]]; then
-    log_err "You can only run this script if you are root."
+    log_err "You can only run this script as root."
     exit 1
 fi
 if [[ -f "${1}" ]]; then

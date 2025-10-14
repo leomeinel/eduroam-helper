@@ -57,7 +57,7 @@ fi
 
 # Remove existing connections using ${CONNECTION_NAME}
 CONNECTION_NAME="eduroam"
-nmcli connection delete "${CONNECTION_NAME}" || true
+nmcli connection delete "${CONNECTION_NAME}" >/dev/null 2>&1 || true
 
 # Check if we are using openssl >=3
 OPENSSL_OPTIONS=""

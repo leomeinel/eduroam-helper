@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ###
-# File: eduroam-ncmli.sh
+# File: eduroam-nmcli.sh
 # Author: Leopold Meinel (leo@meinel.dev)
 # -----
 # Copyright (c) 2025 Leopold Meinel & contributors

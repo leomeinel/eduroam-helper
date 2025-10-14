@@ -55,6 +55,10 @@ if [[ -z "$(which nmcli)" ]]; then
     exit 1
 fi
 
+# Remove existing connections using ${CONNECTION_NAME}
+CONNECTION_NAME="eduroam"
+nmcli connection delete "${CONNECTION_NAME}" || true
+
 # Check if we are using openssl >=3
 OPENSSL_OPTIONS=""
 [[ "$(openssl -v | awk '{print $2}' | cut -d '.' -f1)" -ge 3 ]] &&
@@ -75,10 +79,9 @@ PASSPHRASE="$(head -c 1280 /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 128)"
 openssl pkcs12 -in "${CERT_BUNDLE}" ${OPENSSL_OPTIONS} -passin pass: -passout pass:"${PASSPHRASE}" -nocerts -out "${CERT_DIR}"/client_key.pem ||
     cert_bundle_err_exit "${CERT_BUNDLE}"
 
-# Add nmcli connection for ${WIFI_NAME}
-WIFI_NAME="eduroam"
+# Add nmcli connection for ${CONNECTION_NAME}
 IDENTITY="$(openssl x509 -noout -in "${CERT_DIR}"/client_certs.pem -subject | awk '{print $1}' | sed 's/.*=//' | sed 's/,//' | tr -d "[:space:]")"
-nmcli connection add type wifi con-name "${WIFI_NAME}" ssid "${WIFI_NAME}" -- wifi-sec.key-mgmt wpa-eap 802-1x.eap tls 802-1x.identity "${IDENTITY}" 802-1x.ca-cert "${CERT_DIR}"/ca_certs.pem 802-1x.client-cert "${CERT_DIR}"/client_certs.pem 802-1x.private-key-password "${PASSPHRASE}" 802-1x.private-key "${CERT_DIR}"/client_key.pem
+nmcli connection add type wifi con-name "${CONNECTION_NAME}" ssid "${CONNECTION_NAME}" -- wifi-sec.key-mgmt wpa-eap 802-1x.eap tls 802-1x.identity "${IDENTITY}" 802-1x.ca-cert "${CERT_DIR}"/ca_certs.pem 802-1x.client-cert "${CERT_DIR}"/client_certs.pem 802-1x.private-key-password "${PASSPHRASE}" 802-1x.private-key "${CERT_DIR}"/client_key.pem
 
 # Notify user if script has finished successfully
 echo "'$(basename "${0}")' has finished successfully."

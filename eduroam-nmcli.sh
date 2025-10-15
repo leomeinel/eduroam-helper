@@ -18,9 +18,6 @@ set -e
 log_err() {
     /usr/bin/logger -s -p local0.err <<<"$(basename "${0}"): ${*}"
 }
-log_warning() {
-    /usr/bin/logger -s -p local0.warning <<<"$(basename "${0}"): ${*}"
-}
 cert_bundle_err_exit() {
     log_err "Certificate bundle '${1}' is invalid or openssl exited unexpectedly."
     exit 1

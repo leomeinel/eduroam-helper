@@ -82,7 +82,9 @@ chmod 700 "${CERT_DIR}"
 chmod 0400 "${CERT_DIR}"/*
 
 # Add nmcli connection for ${CONNECTION_NAME}
-IDENTITY="$(openssl x509 -noout -in "${CERT_DIR}"/client_certs.pem -subject | awk '{print $1}' | sed 's/.*=//' | sed 's/,//' | tr -d "[:space:]")"
+IDENTITY="$(openssl x509 -noout -in "${CERT_DIR}"/client_certs.pem -subject)"
+IDENTITY="${IDENTITY#*CN=}"
+IDENTITY="${IDENTITY%%,*}"
 nmcli connection add type wifi con-name "${CONNECTION_NAME}" ssid "${CONNECTION_NAME}" -- wifi-sec.key-mgmt wpa-eap 802-1x.eap tls 802-1x.identity "${IDENTITY}" 802-1x.ca-cert "${CERT_DIR}"/ca_certs.pem 802-1x.client-cert "${CERT_DIR}"/client_certs.pem 802-1x.private-key-password "${PASSPHRASE}" 802-1x.private-key "${CERT_DIR}"/client_key.pem
 
 # Notify user if script has finished successfully

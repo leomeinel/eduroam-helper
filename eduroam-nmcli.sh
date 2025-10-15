@@ -78,6 +78,8 @@ openssl pkcs12 -in "${CERT_BUNDLE}" ${OPENSSL_OPTIONS} -passin pass: -nokeys -ca
 PASSPHRASE="$(head -c 1280 /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 128)"
 openssl pkcs12 -in "${CERT_BUNDLE}" ${OPENSSL_OPTIONS} -passin pass: -passout pass:"${PASSPHRASE}" -nocerts -out "${CERT_DIR}"/client_key.pem ||
     cert_bundle_err_exit "${CERT_BUNDLE}"
+chmod 700 "${CERT_DIR}"
+chmod 0400 "${CERT_DIR}"/*
 
 # Add nmcli connection for ${CONNECTION_NAME}
 IDENTITY="$(openssl x509 -noout -in "${CERT_DIR}"/client_certs.pem -subject | awk '{print $1}' | sed 's/.*=//' | sed 's/,//' | tr -d "[:space:]")"

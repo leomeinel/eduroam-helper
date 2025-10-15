@@ -13,7 +13,7 @@ The certificate bundle should have been provided by your university.
 :information_source: | Please note that this might be outdated. For (sadly somewhat overcomplicated) up-to-date instructions, check [this](https://doku.tid.dfn.de/de:eduroam:easyroam#installation_der_easyroam_profile_auf_linux_geraeten) page.
 
 1. Log in to https://www.easyroam.de
-2. Click on `Manual installation > Linux` and give a profile name to download `example.p12`. The file name might be different.
+2. Click on `Manual installation > Linux` and give a profile name to download `example.p12`. The file name might be different. Adjust the following commands according to that name.
 
 ### II CLI
 

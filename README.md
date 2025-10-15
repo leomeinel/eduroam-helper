@@ -27,9 +27,7 @@ cd ~/Downloads
 git clone https://codeberg.org/ce-it-knowledge-exchange/eduroam-helper.git
 chmod +x ./eduroam-helper/eduroam-nmcli.sh
 
-# Execute eduroam-nmcli.sh
-# If you are using doas, execute only the next line:
-#     > doas ./eduroam-helper/eduroam-nmcli.sh ./example.p12
+# Execute eduroam-nmcli.sh as root
 sudo ./eduroam-helper/eduroam-nmcli.sh ./example.p12
 ```
 

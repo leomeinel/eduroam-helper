@@ -57,9 +57,9 @@ CONNECTION_NAME="eduroam"
 nmcli connection delete "${CONNECTION_NAME}" >/dev/null 2>&1 || true
 
 # Check if we are using openssl >=3
-OPENSSL_OPTIONS=""
-[[ "$(openssl version | awk '{print $2}' | cut -d '.' -f1)" -ge 3 ]] &&
-    OPENSSL_OPTIONS="-legacy"
+OPENSSL_OPTIONS="-legacy"
+[[ "$(openssl version | awk '{print $2}' | cut -d '.' -f1)" -lt 3 ]] &&
+    OPENSSL_OPTIONS=""
 
 # Generate certificates
 ## Create ${CERT_DIR}

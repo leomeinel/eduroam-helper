@@ -29,6 +29,18 @@ chmod +x ./eduroam-helper/eduroam-nmcli.sh
 sudo ./eduroam-helper/eduroam-nmcli.sh ./example.p12
 ```
 
+## Troubleshooting
+
+### `git` is not installed
+
+If `git` is not installed, you can also use curl to download the script directly.
+
+Just skip the `git clone [...]` part of [II](#ii-cli) and execute this instead:
+
+```sh
+curl -LJO https://codeberg.org/exchangeit/eduroam-helper/raw/branch/main/eduroam-nmcli.sh
+```
+
 ## Help
 
 ### eduroam-nmcli.sh

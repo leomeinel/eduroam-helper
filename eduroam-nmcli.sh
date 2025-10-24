@@ -58,7 +58,7 @@ nmcli connection delete "${CONNECTION_NAME}" >/dev/null 2>&1 || true
 
 # Check if we are using openssl >=3
 OPENSSL_OPTIONS=""
-[[ "$(openssl -v | awk '{print $2}' | cut -d '.' -f1)" -ge 3 ]] &&
+[[ "$(openssl version | awk '{print $2}' | cut -d '.' -f1)" -ge 3 ]] &&
     OPENSSL_OPTIONS="-legacy"
 
 # Generate certificates

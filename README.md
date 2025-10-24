@@ -22,7 +22,7 @@ After you have downloaded `example.p12` ([I](#i-gui)), open your terminal.
 cd ~/Downloads
 
 # Clone this repository and make eduroam-nmcli.sh executable
-git clone https://codeberg.org/ce-it-knowledge-exchange/eduroam-helper.git
+git clone https://codeberg.org/exchangeit/eduroam-helper.git
 chmod +x ./eduroam-helper/eduroam-nmcli.sh
 
 # Execute eduroam-nmcli.sh as root

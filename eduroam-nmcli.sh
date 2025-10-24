@@ -47,10 +47,6 @@ if [[ -z "$(which nmcli)" ]]; then
     log_err "No 'nmcli' command found."
     exit 1
 fi
-if [[ "$(nmcli radio wifi)" != "enabled" ]]; then
-    log_err "No WiFi device detected."
-    exit 1
-fi
 
 # Remove existing connections using ${CONNECTION_NAME}
 CONNECTION_NAME="eduroam"

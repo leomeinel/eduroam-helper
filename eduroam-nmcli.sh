@@ -43,12 +43,12 @@ if [[ ! -f "${1}" ]]; then
 fi
 
 # Check if network configuration is valid
-if [[ -z "$(iw dev)" ]]; then
-    log_err "No WiFi device detected."
-    exit 1
-fi
 if [[ -z "$(which nmcli)" ]]; then
     log_err "No 'nmcli' command found."
+    exit 1
+fi
+if [[ "$(nmcli radio wifi)" != "enabled" ]]; then
+    log_err "No WiFi device detected."
     exit 1
 fi
 

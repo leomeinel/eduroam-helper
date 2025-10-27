@@ -15,30 +15,18 @@ The certificate bundle should have been provided by your university.
 
 ### II CLI
 
-After you have downloaded `example.p12` ([I](#i-gui)), open your terminal.
+After you have downloaded `example.p12` ([I GUI](#i-gui)), open your terminal.
 
 ```sh
 # Navigate to the directory where 'example.p12' is stored
 cd ~/Downloads
 
-# Clone this repository and make eduroam-nmcli.sh executable
-git clone https://codeberg.org/exchangeit/eduroam-helper.git
-chmod +x ./eduroam-helper/eduroam-nmcli.sh
-
-# Execute eduroam-nmcli.sh as root
-sudo ./eduroam-helper/eduroam-nmcli.sh ./example.p12
-```
-
-## Troubleshooting
-
-### `git` is not installed
-
-If `git` is not installed, you can also use curl to download the script directly.
-
-Just skip the `git clone [...]` part of [II](#ii-cli) and execute this instead:
-
-```sh
+# Download the script and make it executable
 curl -LJO https://codeberg.org/exchangeit/eduroam-helper/raw/branch/main/eduroam-nmcli.sh
+chmod +x ./eduroam-nmcli.sh
+
+# Execute script as root
+sudo ./eduroam-nmcli.sh ./example.p12
 ```
 
 ## Help

@@ -42,7 +42,7 @@ if [[ ! -f "${1}" ]]; then
 fi
 
 # Check if network configuration is valid
-if command -v nmcli >/dev/null 2>&1; then
+if ! command -v nmcli >/dev/null 2>&1; then
     log_err "No 'nmcli' command found."
     exit 1
 fi

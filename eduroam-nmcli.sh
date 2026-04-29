@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
-###
-# File: eduroam-nmcli.sh
-# Author: Leopold Johannes Meinel (leo@meinel.dev)
-# -----
-# Copyright (c) 2025 Leopold Johannes Meinel & contributors
-# SPDX ID: GPL-3.0-only
-# URL: https://www.gnu.org/licenses/gpl-3.0
-# -----
-# Heavily inspired by: https://git.uni-greifswald.de/URZ-Public/easyroam/src/branch/main/configure-eduroam-with-easyroam
-###
+# Heavily inspired by:
+# - https://git.uni-greifswald.de/URZ-Public/easyroam/src/branch/main/configure-eduroam-with-easyroam
 
 # Fail on error
 set -e
